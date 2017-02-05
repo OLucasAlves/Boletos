@@ -1,0 +1,36 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:o="http://omnifaces.org/ui">
+	
+	
+	
+
+	<ui:define name="titulo">Nova Cliente</ui:define>
+	
+	<ui:define name="corpo">
+		<h1>Cadastro Cliente</h1>
+		
+		<h:form id="frm">
+			<p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
+			
+			<p:panelGrid columns="2">
+				
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText  id="nome" size="40" value="#{novoSacadoBean.sacado.nome}"/>
+				 
+				<p:outputLabel value="cpf" for="cpf" />
+				<p:inputText  id="cpf" size="40" value="#{novoSacadoBean.sacado.cpf}"/>
+				 
+				<p:commandButton value="Salvar"
+					action="#{novoSacadoBean.salvar}" icon="ui-icon-disk" update="@form" />
+			</p:panelGrid>
+		
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>
