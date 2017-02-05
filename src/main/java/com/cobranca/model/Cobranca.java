@@ -23,23 +23,23 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-//@Table(name = "cobranca")
+@Table(name = "cobranca")
 public class Cobranca implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "cobranca")
-	@TableGenerator(name = "cobranca")
+	@TableGenerator(name = "cobranca")*/
 	private Long codigo;
 	private BigDecimal valor;
 	private Date dataVencimento;
 	private Sacado sacado;
 	private Status status;
 	
-	/*
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getCodigo() {
 		return codigo;
 	}

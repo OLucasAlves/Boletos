@@ -7,7 +7,7 @@
   
   <persistence-unit name="boletoPU" transaction-type="RESOURCE_LOCAL">
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/boleto"  /> 
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/teste2"  /> 
       <property name="javax.persistence.jdbc.user" value="root" /> 
       <property name="javax.persistence.jdbc.password" value="1234" /> 
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

@@ -17,16 +17,20 @@
 		<h:form id="frm">
 			<p:messages showDetail="false" showSummary="true" autoUpdate="true"/>
 			
-			<p:panelGrid columns="2">
+			<p:toolbar style="margin-top: 20px">
+				<f:facet name="left">
+					<p:commandButton value="Salvar" ajax="false" actionListener="#{novoSacadoBean.salvar}"/>
+				</f:facet>
+			</p:toolbar>
+			
+			<p:panelGrid columns="2" style="width: 50%; margin-top: 20px" columnClasses="rotulo, campo">
 				
 				<p:outputLabel value="Nome" for="nome" />
 				<p:inputText  id="nome" size="40" value="#{novoSacadoBean.sacado.nome}"/>
 				 
-				<p:outputLabel value="cpf" for="cpf" />
-				<p:inputText  id="cpf" size="40" value="#{novoSacadoBean.sacado.cpf}"/>
+				<p:outputLabel value="CPF" for="cpf" />
+				<p:inputMask  id="cpf" size="40" value="#{novoSacadoBean.sacado.cpf}" mask="999.999.999-99"/>
 				 
-				<p:commandButton value="Salvar"
-					action="#{novoSacadoBean.salvar}" icon="ui-icon-disk" update="@form" />
 			</p:panelGrid>
 		
 		</h:form>

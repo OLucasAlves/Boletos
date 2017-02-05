@@ -10,23 +10,24 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
+import javax.validation.constraints.NotNull;
 
 @Entity
-//[[@Table(name = "cedente")
+@Table(name = "cedente")
 public class Cedente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "cedente")
-	@TableGenerator(name = "cedente")
+	@TableGenerator(name = "cedente")*/
 	private Long codigo;
 	private String nome;
 	private String cnpj;
 	private ContaBancaria contaBancaria;
 
-	/*@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -34,7 +35,8 @@ public class Cedente implements Serializable {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
+	
+	
 	public String getNome() {
 		return nome;
 	}

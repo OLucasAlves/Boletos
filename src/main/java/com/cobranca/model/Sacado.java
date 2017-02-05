@@ -2,29 +2,35 @@ package com.cobranca.model;
 
 import java.io.Serializable;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
-//@Table(name = "sacado")
+@Table(name = "sacado")
 public class Sacado implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "sacado")
-	@TableGenerator(name = "sacado")
+	@TableGenerator(name = "sacado")*/
 	private Long codigo;
 	private String nome;
 	private String cpf;
 	
-	/*
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -32,7 +38,8 @@ public class Sacado implements Serializable {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
+	
+	@NotEmpty
 	public String getNome() {
 		return nome;
 	}
@@ -41,6 +48,8 @@ public class Sacado implements Serializable {
 		this.nome = nome;
 	}
 	
+	@NotEmpty
+	@CPF
 	public String getCpf() {
 		return cpf;
 	}
