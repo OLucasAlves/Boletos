@@ -33,9 +33,11 @@
 					<f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
 				</p:inputText>
 				
-				<p:outputLabel value="Esta cobrança vence em:" for="dataVencimento"/>
+				<p:outputLabel value="Vencimento" for="dataVencimento"/>
 				<p:calendar id="dataVencimento" size="10" pattern="dd/MM/yyyy" value="#{novaCobrancaBean.cobranca.dataVencimento}"/>
 				
+				<p:outputLabel value="Instrução" for="instrucao"/>
+				<p:inputText id="instrucao" name="instrucao" value="#{novaCobrancaBean.cobranca.instrucao}"/>
 				  
 				<p:outputLabel value="Cliente" for="sacado"/>
 				<p:selectOneMenu value="#{novaCobrancaBean.cobranca.sacado}" 

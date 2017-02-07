@@ -57,7 +57,7 @@ public class BopepoEmissorBoleto implements EmissorBoleto {
 		
 		Boleto boleto = new Boleto(titulo);
 		boleto.setLocalPagamento("Pagável em qualquer banco até o vencimento");
-		boleto.setInstrucao1("Não receber após o vencimento");
+		boleto.setInstrucao1(cobrancaSistema.getInstrucao());
 		return boleto;
 	}
 	

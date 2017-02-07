@@ -1,6 +1,7 @@
 package com.cobranca.model;
 
 import java.io.Serializable;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -36,6 +37,7 @@ public class Cobranca implements Serializable {
 	private Date dataVencimento;
 	private Sacado sacado;
 	private Status status;
+	private String instrucao;
 	
 	
 	@Id
@@ -49,7 +51,7 @@ public class Cobranca implements Serializable {
 	}
 	
 	
-	@NotNull
+	@NotEmpty
 	@Column(precision=10,scale=2,nullable=false)
 	public BigDecimal getValor() {
 		return valor;
@@ -59,7 +61,7 @@ public class Cobranca implements Serializable {
 		this.valor = valor;
 	}
 	
-	@NotNull
+	@NotEmpty
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_vencimento")
 	public Date getDataVencimento() {
@@ -70,7 +72,7 @@ public class Cobranca implements Serializable {
 		this.dataVencimento = dataVencimento;
 	}
 	
-	@NotNull
+	@NotEmpty
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "codigo_sacado")
 	public Sacado getSacado() {
@@ -88,6 +90,16 @@ public class Cobranca implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+	
+	@NotEmpty
+	@Column(name = "cobranca")
+	public String getInstrucao() {
+		return instrucao;
+	}
+
+	public void setInstrucao(String informacao) {
+		this.instrucao = informacao;
 	}
 
 	@Override
