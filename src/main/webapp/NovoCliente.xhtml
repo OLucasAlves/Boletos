@@ -6,8 +6,10 @@
 	xmlns:p="http://primefaces.org/ui" 
 	xmlns:o="http://omnifaces.org/ui">
 	
-	
-	
+	<f:metadata>
+		<f:viewAction action="#{novoSacadoBean.inicializar}"/>
+		
+	</f:metadata>	
 
 	<ui:define name="titulo">Nova Cliente</ui:define>
 	
@@ -30,6 +32,12 @@
 				 
 				<p:outputLabel value="CPF" for="cpf" />
 				<p:inputMask  id="cpf" size="40" value="#{novoSacadoBean.sacado.cpf}" mask="999.999.999-99"/>
+				
+				<p:outputLabel value="Modelo" for="modelo" />
+				<p:inputText  id="modelo" size="40" value="#{novoSacadoBean.carro.modelo}"/>
+				
+				<p:outputLabel value="Placa" for="placa" />
+				<p:inputText  id="placa" size="40" value="#{novoSacadoBean.carro.placa}"/>
 				 
 			</p:panelGrid>
 		

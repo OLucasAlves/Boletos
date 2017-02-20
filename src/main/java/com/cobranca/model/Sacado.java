@@ -2,16 +2,17 @@ package com.cobranca.model;
 
 import java.io.Serializable;
 
-
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
-import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -27,7 +28,7 @@ public class Sacado implements Serializable {
 	private Long codigo;
 	private String nome;
 	private String cpf;
-	
+	private Carro carro;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,6 +57,16 @@ public class Sacado implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinColumn(name ="carro_id")
+	public Carro getCarro() {
+		return carro;
+	}
+
+	public void setCarro(Carro carro) {
+		this.carro = carro;
 	}
 
 	@Override

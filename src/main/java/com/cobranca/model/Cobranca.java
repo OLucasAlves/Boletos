@@ -51,7 +51,7 @@ public class Cobranca implements Serializable {
 	}
 	
 	
-	@NotEmpty
+	//@NotEmpty
 	@Column(precision=10,scale=2,nullable=false)
 	public BigDecimal getValor() {
 		return valor;
@@ -61,7 +61,7 @@ public class Cobranca implements Serializable {
 		this.valor = valor;
 	}
 	
-	@NotEmpty
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_vencimento")
 	public Date getDataVencimento() {
@@ -72,7 +72,7 @@ public class Cobranca implements Serializable {
 		this.dataVencimento = dataVencimento;
 	}
 	
-	@NotEmpty
+	@NotNull
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinColumn(name = "codigo_sacado")
 	public Sacado getSacado() {
@@ -92,7 +92,7 @@ public class Cobranca implements Serializable {
 		this.status = status;
 	}
 	
-	@NotEmpty
+	@NotNull
 	@Column(name = "cobranca")
 	public String getInstrucao() {
 		return instrucao;

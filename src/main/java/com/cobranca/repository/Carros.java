@@ -5,19 +5,21 @@ import java.io.Serializable;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import com.cobranca.model.Cobranca;
+import com.cobranca.model.Carro;
 
-public class Cobrancas implements Serializable {
+public class Carros implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Inject
 	private EntityManager manager;
-
-	public Cobranca guardar(Cobranca cobranca) {
-		return this.manager.merge(cobranca);
+	
+	public Carro guardar(Carro carro){
+		return this.manager.merge(carro);
 	}
 	
-	
-	
+	public Carro porId(Long id){
+		return this.manager.find(Carro.class,id);
+	}
+
 }
